@@ -1,6 +1,6 @@
 import unittest
 
-from prabjat.src.stats.data_load import load_data
+from src.stats.data_load import load_data
 
 
 class TestingLoad(unittest.TestCase):

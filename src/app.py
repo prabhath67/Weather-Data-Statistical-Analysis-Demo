@@ -3,12 +3,12 @@ import logging
 
 import connexion
 
-SWAGGER_PATH = ''
+SWAGGER_PATH = 'src/swagger/'
 logger = logging.getLogger('app')
 
 logger.info('Path of swagger file: {path}'.format(path=SWAGGER_PATH))
 app = connexion.App(__name__, specification_dir=SWAGGER_PATH)
-app.add_api('employee.yaml')
+app.add_api('stats.yaml')
 application = app.app
 
 
