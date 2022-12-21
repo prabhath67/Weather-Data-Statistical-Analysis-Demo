@@ -1,0 +1,102 @@
+swagger: '2.0'
+info:
+  title: Stats APi
+  description: RESTful Api written in Python.
+  version: '1.0'
+
+paths:
+  /:
+    get:
+      summary: Root endpoint
+      operationId: src.views.root
+      responses:
+        '200':
+          description: Logged In
+  /api/weather:
+    post:
+      tags:
+        - weather
+      summary: Get avg weather on a perticular date
+      operationId: src.stats.data_analysis_stats.get_weather_on_date
+      parameters:
+        - name: date
+          type: date
+          in: query
+          required: True
+          default: ''
+        - name: station_id
+          type: string
+          in: query
+          required: True
+          default: ''
+      responses:
+        '200':
+          description: Return weather for a particular date for station_id
+          schema:
+            $ref: '#/definitions/Weathers'
+  /api/yield:
+    post:
+      tags:
+        - yield
+      summary: Get a yield on particular date
+      operationId: src.stats.data_analysis_stats.get_yield_on_date
+      parameters:
+        - name: date
+          type: date
+          in: query
+          required: True
+          default: ''
+      responses:
+        '200':
+          description: Successfully recieved yield
+          schema:
+            $ref: '#/definitions/Yields'
+  /api/weather/stats:
+    get:
+      tags:
+        - weather
+      summary: Get avg weather all
+      operationId: src.stats.data_analysis_stats.get_weather_stats
+      parameters:
+        - name: station_id
+          type: string
+          in: query
+          required: True
+          default: ''
+      responses:
+        '200':
+          description: Return weather for a particular date for station_id
+          schema:
+            $ref: '#/definitions/Weathers'
+
+definitions:
+  Weathers:
+    type: object
+    properties:
+      date:
+        type: string
+        description: date
+        example: 20221212
+      temp_max:
+        type: integer
+        description: max temp
+        example: -22
+      temp_min:
+        type: integer
+        description: min temp
+        example: -43
+      precipitation_amount:
+        type: integer
+        description: precipitation amount
+        example: 2
+  Yields:
+    type: object
+    properties:
+      date:
+        type: string
+        description: date
+        example: 20221212
+      yield:
+        type: string
+        description: yield on date
+        example: 321454
