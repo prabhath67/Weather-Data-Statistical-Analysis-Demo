@@ -3,6 +3,8 @@ import logging
 
 import connexion
 
+from src.stats.data_load import load_data
+
 SWAGGER_PATH = 'src/swagger/'
 logger = logging.getLogger('app')
 
@@ -13,4 +15,5 @@ application = app.app
 
 
 if __name__ == '__main__':
+    load_data()
     application.run(port='3310')
