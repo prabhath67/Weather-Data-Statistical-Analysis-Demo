@@ -1,0 +1,6 @@
+Code :
+src.stats.data_load
+
+Function load_data will iterate through files in given folder check for valid files
+if valid it will load data into pandas dataframe and drop duplicates if any
+It will load data in desired database table using sqlite lib

@@ -1,0 +1,18 @@
+Function: avg_max_temp
+
+Access the directory and get names of regions(table_name)
+Do select query on tables and load desired data into pandas dataframe
+Avg max temp for each region for every year will be stored in table with suffix {table_name}_avg_max_temp
+
+
+Function: avg_min_temp
+
+Access the directory and get names of regions(table_name)
+Do select query on tables and load desired data into pandas dataframe
+Avg min temp for each region for every year will be stored in table with suffix {table_name}_avg_min_temp
+
+Function: total_accum_prec
+
+Access the directory and get names of regions(table_name)
+Do select query on tables and load desired data into pandas dataframe
+total precipitation amount for each region for every year will be stored in table with suffix {table_name}_precipitation_amount

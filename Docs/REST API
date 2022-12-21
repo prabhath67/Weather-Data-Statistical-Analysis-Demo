@@ -1,0 +1,5 @@
+Below get endpoints created and swagger is located at src/swagger/stats.yaml
+
+/api/weather GET
+/api/yield GET
+/api/weather/stats GET

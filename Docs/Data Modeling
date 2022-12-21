@@ -1,0 +1,58 @@
+Database : SQLite
+DDL for Weather Data records:
+
+Run below DDL statements in terminal at sqlite location.
+
+CREATE DATABASE wx_yld_data; (Common to both wx and yld datas)
+
+Repeat create table for all regions .
+CREATE TABLE IF NOT EXISTS {REGION_NAME} (
+	date TEXT NOT NULL,
+	temp_max INTEGER DEFAULT -9999,
+	temp_min INTEGER DEFAULT -9999,
+	precipitation_amount INTEGER DEFAULT -9999
+	FOREIGN KEY (date)
+);
+
+
+Now we can import data from desired location to above tables created using import command in terminal from sqlite.
+sqlite> .separator "\t"
+sqlite> .import /loaction/{REGION}.txt {REGION_NAME}
+
+Programatically in python:
+Pseudo code:
+Open connection to database.
+Open folder containing region data file and open each file.
+create a table for each region.
+Read file line by line with separator as tab(\t)
+Run insert statements on each line.
+Repeat for all regions
+
+
+
+DDL for Yield Data records:
+
+Run below DDL statements in terminal at sqlite location.
+
+Use same database wx_yld_data; (Common to both wx and yld datas)
+
+create table for yld_data .
+CREATE TABLE IF NOT EXISTS yld_data (
+	date TEXT NOT NULL,
+	yield BIGINT DEFAULT -9999
+	FOREIGN KEY (date)
+);
+
+
+Now we can import data from desired location to above tables created using import command in terminal from sqlite.
+sqlite> .separator "\t"
+sqlite> .import /loaction/US_corn_grain_yield.txt yld_data
+
+Programatically in python:
+Pseudo code:
+Open connection to database.
+create a table for yield data.
+Open folder containing yld data file and open file.
+Read file line by line with separator as tab(\t)
+Run insert statements on each line on table yld_data
+

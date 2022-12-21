@@ -13,14 +13,14 @@ paths:
         '200':
           description: Logged In
   /api/weather:
-    post:
+    get:
       tags:
         - weather
       summary: Get avg weather on a perticular date
       operationId: src.stats.data_analysis_stats.get_weather_on_date
       parameters:
         - name: date
-          type: date
+          type: string
           in: query
           required: True
           default: ''
@@ -35,14 +35,14 @@ paths:
           schema:
             $ref: '#/definitions/Weathers'
   /api/yield:
-    post:
+    get:
       tags:
         - yield
       summary: Get a yield on particular date
       operationId: src.stats.data_analysis_stats.get_yield_on_date
       parameters:
         - name: date
-          type: date
+          type: string
           in: query
           required: True
           default: ''
